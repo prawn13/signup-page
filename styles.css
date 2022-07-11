@@ -1,4 +1,179 @@
-.background {
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    border: none;
+}
+
+body {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(38, 31, 29);
+    -webkit-appearance: none;
+    appearance: none;
+
+}
+
+@font-face {
+    font-family: Norse-Bold;
+    src: url('fonts/Norse-Bold.otf');
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url('fonts/Montserrat.ttf');
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.content {
     width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-image {
+    height: 100vh;
+    width: auto;
+    flex: 1;
+}
+
+.signup-container {
+    width: 100%;
     height: auto;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+h1 {
+    color: rgb(129, 110, 98);
+    text-align: left;
+    padding: 20px;
+    border: 10px;
+    width: 42vw;
+    font-size: 30px;
+}
+
+
+.credit {
+    color: white;
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+    font-size: 40%;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a:visited,
+a:link {
+    color: white;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.signup-form {
+    font-size: 20px;
+    background-color: rgb(129, 110, 98);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+    box-shadow: 0 4px 4px rgb(105, 99, 99);
+}
+
+input {
+    font-size: 32px;
+    width: clamp(200px, 60%, 80%);
+    border-radius: 10px;
+    transition: all 0.30s ease-in-out;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+}
+
+div .row {
+    display: flex;
+    width: inherit;
+    justify-content: space-evenly;
+    align-items: stretch;
+
+}
+
+li {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 2px;
+    justify-content: space-between;
+    color: rgb(38, 31, 29);
+}
+
+input:focus {
+    border: 2px solid rgb(180, 180, 245);
+    box-shadow: 0px 2px 2px rgb(175, 175, 175);
+}
+
+input[type='text']:focus:invalid + span:before {
+    content: "Please enter a valid name";
+    color: rgb(181, 3, 3);
+    
+}
+
+input[type='email']:focus:invalid + span:before {
+    content: "Please enter a valid email address";
+    color: rgb(181, 3, 3);
+    
+}
+
+input[type='tel']:focus:invalid + span:before {
+    content: "Please enter a valid phone number";
+    color: rgb(181, 3, 3);
+    
+}
+
+input[type='password']:focus:invalid + span:before {
+    content: "Please enter a valid password";
+    color: rgb(181, 3, 3);
+    
+}
+
+button {
+    font-size: 30px;
+    width: clamp(170px, 240px, 300px);
+    flex: 1 0;
+    border-radius: 10px;
+    background-color: #596D48;
+    box-shadow: 0 4px 4px rgb(105, 99, 99);
+}
+
+legend {
+    text-align: left;
+    font-size: 40px;
+}
+
+
+input:valid:before {
+    content: "nice job : )";
+    color: green;
 }
