@@ -11,14 +11,7 @@
 }
 
 body {
-    display: flex;
-    font-size: 40px;
-    gap: 20px;
-    justify-content: space-between;
-    align-items: center;
     background: rgb(38, 31, 29);
-    -webkit-appearance: none;
-    appearance: none;
 }
 
 @font-face {
@@ -32,7 +25,6 @@ body {
 }
 
 .content {
-    width: 100vw;
     display: flex;
     align-items: center;
 }
@@ -51,8 +43,7 @@ body {
     top: 35%;
     padding: 40px 0 20px 0;
     width: 100%;
-    font-family: 'Norse-Bold';
-    font-size: 200%;
+    font: 80px 'Norse-Bold';
     text-align: center;
     background-color: rgba(255, 96, 96, 0.26);
 }
@@ -70,9 +61,13 @@ h1 {
     text-align: left;
     padding: 20px;
     border: 10px;
-    width: 42vw;
-    font-size: 2.5vw;
+    width: auto;
+    font-size: max(24px, 2.2vw);
     text-shadow: 2px 2px 2px yellow;
+}
+
+legend strong {
+    font: 50px 'Norse-Bold';
 }
 
 .credit {
@@ -87,29 +82,47 @@ h1 {
 a:visited,
 a:link {
     color: white;
-}
-
-form {
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
+    text-decoration: none;
 }
 
 .signup-form {
-    font-size: 20px;
-    background-color: rgb(129, 110, 98);
+    font-size: 1vw;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     width: 100%;
-    height: 400px;
+}
+
+.form-wrapper {
+    background-color: rgb(129, 110, 98);
+    height: 500px;
+    padding: 40px 20px 80px 20px;
     box-shadow: 0 4px 4px rgb(105, 99, 99);
 }
 
+div .row {
+    display: flex;
+    width: inherit;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+li {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 30px;
+    gap: 2px;
+    justify-content: space-between;
+    align-items: stretch;
+    text-shadow: 4px 4px 6px rgb(100, 100, 16);
+}
+
 input {
-    font-size: 32px;
-    padding: 2px;
+    font-size: 100%;
+    padding: 8px;
     width: clamp(200px, 60%, 80%);
     border-radius: 10px;
     transition: all 0.30s ease-in-out;
@@ -120,26 +133,6 @@ input {
     outline: none;
 }
 
-div .row {
-    display: flex;
-    width: inherit;
-    justify-content: space-evenly;
-    align-items: stretch;
-
-}
-
-li {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    padding: 20px;
-    gap: 2px;
-    justify-content: space-between;
-    align-items: stretch;
-    text-shadow: 4px 4px 6px rgb(100, 100, 16);
-}
-
 input:focus {
     border: 2px solid rgb(180, 180, 245);
     box-shadow: 0px 2px 2px rgb(175, 175, 175);
@@ -148,29 +141,41 @@ input:focus {
 span:before {
     position: absolute;
     color: rgb(181, 3, 3);
+    width: 50%;
+    font-size: 16px;
 }
 
-input[type='text']:focus:invalid + span:before {
-    content: "Please enter a valid name";
+input:invalid:focus {
+    border: 3px solid rgba(255, 0, 0, 0.636);
+    background: rgba(248, 58, 58, 0.636);
+}
+
+input#firstname:focus:invalid + span:before {
+    content: "Enter your first name";
+}
+
+input#lastname:focus:invalid + span:before {
+    content: "Enter your last name";
 }
 
 input[type='email']:focus:invalid + span:before {
-    content: "Please enter a valid email address";
+    content: "Enter a valid email address";
 }
 
 input[type='tel']:focus:invalid + span:before {
-    content: "Please enter a valid phone number";
+    content: "Enter a valid phone number";
 }
 
-input[type='password']:focus:invalid + span:before {
-    content: "Please enter a valid password";
+input#pw:focus:invalid + span:before {
+    content: "Must contain 8 characters: 1 number, 1 special character, 1 uppercase";
+}
+
+input#pw2:focus:invalid + span:before {
+    content: "Passwords do not match";
 }
 
 input:valid + span:before {
-    position: absolute;
-    left: 48%;
-    top: 54px;
-    
+    /* display: inline-block; */
     content: "nice : )";
     text-shadow: none;
     color: rgb(0, 194, 0);
@@ -182,4 +187,28 @@ button {
     border-radius: 10px;
     background-color: #596D48;
     box-shadow: 0 4px 4px rgb(105, 99, 99);
+}
+
+
+
+@media all and (max-width: 700px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .background-container {
+        width: 100%;
+        height: 220px;
+    }
+    
+    .logo {
+        font-size: 9vw;
+    }
+
+    input,
+    span,
+    label {
+        font-size: 16px;
+    }
 }
